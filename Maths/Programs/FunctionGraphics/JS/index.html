@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags-->
+		<meta name="description" content="The core aim of our project is to create online learning management system that combines best practices in organizing training so that it will be interesting, useful and much easier for the students. The most important part of our project is to fertilize future programmers, showing them that it is not as difficult as it sounds. This will happen through brief and extensive online practical competitions taken their levels, with certificates and prizes for the best ones.">
+		<meta name="author" content="Tech Education ++">
+		<meta name="keywords" content="Learning, Online, System, C++, C#, Algorithms, Courses, Presentations, Videos">
+		<meta name="distribution" content="web">
+		<meta name="robots" content="index, nofollow">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="icon" href="/favicon.png">
+		<title>Graphing a function</title>
+
+		<link rel="stylesheet" href="./css/bootstrap.min.css"> 
+		<link rel="stylesheet" href="./css/reveal.css">
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<aside style="float: left;">
+						<h1 class="display-3">Graphing a function</h1>
+						<p style="font-size: 200%">
+						Type JavaScript code in below that defines a function named <code>F</code><br> and the click <a href="javascript:Draw()">Draw!</a> button further down.
+						</p>
+							<textarea id="function-code" rows="10" cols="40" style="font-size: 200%">
+							var F = function(x) 
+							{
+								return Math.sin(x);
+							}
+							</textarea>
+						<br>
+						<br>
+						<input style="font-size: 200%" onclick="Draw();" value="Draw!" type="button" class="btn btn-primary btn-lg">
+					</aside>
+					<canvas id="xy-graph" width="700px" height="1400px">
+						CANVAS NOT SUPPORTED IN THIS BROWSER!
+					</canvas>
+				</section>
+			</div>
+		</div>
+		<hr>
+		<footer>
+			<center>
+				<p>Copyrights © Alex Tsvetanov 2016-2017</p>
+			</center>
+		</footer>
+
+		<script type="text/javascript" src="./canvas-graph.js"> </script>
+
+		<script src="./js/tether.min.js"></script>
+		<script src="./js/jquery.min.js"></script>
+		<script src="./js/bootstrap.min.js"></script>
+		<script src="./lib/js/head.min.js"></script>
+		<script src="./js/reveal.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: false,
+				progress: false,
+				history: false,
+				center: true,
+
+				transition: 'none',
+
+				dependencies: [
+					{ src: './plugin/markdown/marked.js' },
+					{ src: './plugin/markdown/markdown.js' },
+					{ src: './plugin/notes/notes.js', async: true },
+					{ src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

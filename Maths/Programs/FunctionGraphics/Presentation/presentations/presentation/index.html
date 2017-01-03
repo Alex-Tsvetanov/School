@@ -1,0 +1,677 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+
+		<title>Presentation</title>
+
+		<meta name="description" content="Function Graphics">
+		<meta name="author" content="Alex Tsvetanov">
+
+<!--
+		<link href="../reveal.js/css/impress-demo.css" rel="stylesheet">
+-->
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="shortcut icon" href="/favicon.png">
+
+
+		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<link href="../reveal.js/css/template.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<div class="head">
+						<div class="logo"></div><div class="title">Компютърни средства за графика на функции</div>
+					</div>
+					<div class="body">
+						<center>
+							GeoGebra, Octave, Haskell, Python, JavaScript
+						</center>
+					</div>
+					<div class="foot">	
+						<div class="bottom">
+							<div class="author">Алекс Цветанов</div>
+							<div class="organization">8<sup>-Б</sup> клас, СМГ</div>
+							<div class="webpages"><a href="https://tsalex.tk">https://tsalex.tk</a></div>
+						</div>
+						
+						<div class="number"> </div>
+						<div class="follow"> </div>
+					</div>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+				<section>
+					<div class="head">
+						<div class="logo"></div> <div class="title">Съдържание</div>
+					</div>
+					<div class="body">
+						<ul>
+							<li>JavaScript</li>
+							<li>Python</li>
+							<li>Haskell</li>
+							<li>
+								Octave
+								<ul>
+									<li>Онлайн интерпретатори</li>
+									<li>Офлайн интерпретатори</li>
+									<li>Разлики с MatLab</li>
+								</ul>
+							</li>
+							<li>
+								GeoGebra
+								<ul>
+									<li>Офлайн</li>
+									<li>Онлайн</li>
+								</ul>
+							</li>
+							<li>Wolfram|Alpha Mathematica</li>
+						</ul>
+					</div>
+					<br>
+					<br>
+					<div class="foot">	
+						<div class="number"> </div>
+						<div class="follow"> </div>
+					</div>
+				</section>
+				<section>
+					<section>
+						<div class="head">
+							<div class="logo"></div>
+						</div>
+						<div class="body">
+							<center>
+								<img height="400px" src="js.png">
+							</center>
+						</div>
+						<br>
+						<br>
+						<div class="foot">	
+							<div class="number"> </div>
+							<div class="follow"> </div>
+						</div>
+					</section>
+					<section>
+						<div class="head">
+							<div class="logo"></div> <div class="title">JavaScript</div>
+						</div>
+						<div class="body" data-markdown>
+						Примерни функции:
+						```js
+							var F = function (x)
+							{
+								return (x + 1);
+							}
+
+							var F = function (x)
+							{
+								return Math.sin (x);
+							}													
+						```
+						[Демо](../../../JS/index.html)
+						</div>
+						<br>
+						<br>
+						<div class="foot">	
+							<div class="number"> </div>
+							<div class="follow"> </div>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<div class="head">
+							<div class="logo"></div>
+						</div>
+						<div class="body">
+							<center>
+								<img height="350px" src="python-logo-generic.svg">
+							</center>
+						</div>
+						<br>
+						<br>
+						<div class="foot">	
+							<div class="number"> </div>
+							<div class="follow"> </div>
+						</div>
+					</section>
+					<section>
+						<div class="head">
+							<div class="logo"></div> <div class="title">Python</div>
+						</div>
+						<div class="body" data-markdown>
+						Основа:
+						```py
+							import numpy as np  
+							import matplotlib.pyplot as plt  
+
+							def graph (formula, x_range):  
+								x = np.array (x_range);
+								y = eval (formula);
+								plt.plot (x, y);
+								plt.show ();
+						```
+						Начин на употреба:
+						```py
+							graph('abs (x)', range(-100, 100)); # Графика на |x|
+							graph('x', range(-100, 100)); # Графика на x
+							graph('x * x', range(-100, 100)); # Графика на x ^ 2
+							graph('pow (x, 3)', range(-100, 100)); # Графика на x ^ 3
+						```
+						</div>
+						<br>
+						<br>
+						<div class="foot">	
+							<div class="number"> </div>
+							<div class="follow"> </div>
+						</div>
+					</section>
+					<section>
+						<div class="head">
+							<div class="logo"></div> <div class="title">Python</div>
+						</div>
+						<div class="body" data-markdown>
+						sin (x):
+						```py
+							import matplotlib.pyplot as plt
+							import numpy as np
+							import math as math
+
+							fs = 360
+
+							x = np.arange (fs) # [0, 360]
+							y = [ np.sin (math.radians (i - fs)) for i in x] 
+							# множества от стойностите на sin за всяка стойност в x (в множеството [0, 360])
+							# sin в Python работи с радиани
+
+							plt.plot (x, y)
+							plt.show()
+							plt.stem (x, y)
+							plt.show()
+						```
+						</div>
+						<br>
+						<br>
+						<div class="foot">	
+							<div class="number"> </div>
+							<div class="follow"> </div>
+						</div>
+					</section>
+					<section>
+						<div class="head">
+							<div class="logo"></div> <div class="title"></div>
+						</div>
+						<div class="body">
+							<center>
+								<h1>Демо</h1>
+								<img src="./sin_py.png">
+							</center>
+						</div>
+						<br>
+						<br>
+						<div class="foot">	
+							<div class="number"> </div>
+							<div class="follow"> </div>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<div class="head">
+							<div class="logo"></div><div class="title">Haskell</div>
+						</div>
+						<div class="body">
+							<center>
+								<img height="350px" src="Haskell-Logo.svg">
+							</center>
+						</div>
+						<br>
+						<br>
+						<div class="foot">	
+							<div class="number"> </div>
+							<div class="follow"> </div>
+						</div>
+					</section>
+					<section>
+						<div class="head">
+							<div class="logo"></div> <div class="title">Haskell</div>
+						</div>
+						<div class="body">
+						Основа:
+						<div data-markdown>
+						```hs
+							import Graphics.EasyPlot
+
+							main = do
+						```
+						</div>
+						Начин на употреба:<br>
+						<small>2D функция f (x) = sin(x) × cos(x)</small>
+						<div data-markdown>
+						```hs
+							plot X11 $ Function2D [Title "Sine and Cosine"] [] (\x -> sin x * cos x)
+						```
+						</div>
+						<small>Графика на sin</small>
+						<div data-markdown>
+						```hs
+							plot X11 sin
+						```
+						</div>
+						<small>Множеството от точки (sin(x), cos(x)), записано във файла img/plot.png като графика</small>
+						<div data-markdown>
+						```hs
+							plot (PNG "img/plot.png") (sin . cos)
+						```
+						</div>
+						<small>Графика на 2D функцията f(x) = 2<sup>cos (x)</sup> </small>
+						<div data-markdown>
+						```hs
+							plot X11 $ Gnuplot2D [Color Blue] [] "2**cos(x)"
+						```
+						</div>
+						<small>Графика на 3D функцията f(x,y) = x × y </small>
+						<div data-markdown>
+						```hs
+							plot X11 "x*y"
+						```
+						</div>
+						<small>Графика на точките (x, x<sup>3</sup>) за x ⊂ [-4, -3.9 ... 4] и 2D функцията f(x) = x<sup>2</sup> </small>
+						<div data-markdown>
+						```hs
+							plot X11 [ Data2D [Title "Graph 1", Color Red] [] [(x, x ** 3) | x <- [-4,-3.9..4]], 
+							           Function2D [Title "Function 2", Color Blue] [] (\x -> x ** 2) ]
+
+						```
+						</div>
+						</div>
+						<br>
+						<br>
+						<div class="foot">	
+							<div class="number"> </div>
+							<div class="follow"> </div>
+						</div>
+					</section>
+					<section>
+						<div class="head">
+							<div class="logo"></div> <div class="title"></div>
+						</div>
+						<div class="body">
+							<center>
+								<h1>Демо</h1>
+								<img src="./3D haskell.png">
+							</center>
+						</div>
+						<br>
+						<br>
+						<div class="foot">	
+							<div class="number"> </div>
+							<div class="follow"> </div>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<div class="head">
+							<div class="logo"></div> <div class="title"></div>
+						</div>
+						<div class="body">
+							<center>
+								<img height="350px" src="./octave-logo.svg"><br><span style="font-size: 125px;color: #0790C0;">GNU Octave</span>
+							</center>
+						</div>
+						<br>
+						<br>
+						<div class="foot">	
+							<div class="number"> </div>
+							<div class="follow"> </div>
+						</div>
+					</section>
+					<section>
+						<div class="head">
+							<div class="logo"></div> <div class="title">Octave</div>
+						</div>
+						<div class="body">
+							Начин на употреба:<br>
+							<small>2D функция f (x) = 5 × x</small>
+							<div data-markdown>
+							```m
+								function result_of_f = f (x)
+									result_of_f = 5 * x;
+								endfunction
+							```
+							</div>
+							<small>2D функция f (x) = sin(x) × cos(x)</small>
+							<div data-markdown>
+							```m
+								function result_of_f = f (x)
+									result_of_f = sin (x) .* cos(x);
+								endfunction
+							```
+							</div>
+							<small>Графика на sin</small>
+							<div data-markdown>
+							```m
+								plot (sin);
+							```
+							```m
+								my_range = [-180:0.0001:180];
+								plot (my_range, f (my_range)); 
+							```
+							</div>
+							<small>Множеството от точки (sin(x), cos(x))</small>
+							<div data-markdown>
+							```m
+								function ans = f (x)
+									ans = cos (asin (x));
+								endfunction
+							```
+							</div>
+							<small>Графика на 2D функцията f(x) = 2<sup>cos (x)</sup> </small>
+							<div data-markdown>
+							```m
+								function ans = f (x)
+									ans = 2 ^ cos (x);
+								endfunction
+								plot (my_range, f (my_range));
+							```
+							</div>
+						</div>
+						<br>
+						<br>
+						<div class="foot">	
+							<div class="number"> </div>
+							<div class="follow"> </div>
+						</div>
+					</section>
+					<section>
+						<div class="head">
+							<div class="logo"></div> <div class="title">Octave</div>
+						</div>
+						<div class="body">
+							<small>Графика на 3D функцията f(x,y) = x × y </small>
+							<div data-markdown>
+							```m
+								[xx, yy] = meshgrid (-1:0.002:1, 0:0.001:1);
+								f = xx .* yy;
+								surf (xx, yy, f)
+							```
+							</div>
+							<small>Графика на f (x) = x<sup>3</sup> за x ⊂ [-4, -3.9 ... 4] и 2D функцията f(x) = x<sup>2</sup> </small>
+							<div data-markdown>
+							```m
+								function ans1 = f1 (x)
+									ans1 = x .^ 3;
+								endfunction
+
+								function ans2 = f2 (x)
+									ans2 = x .^ 2;
+								endfunction
+
+								x = [-(sqrt(25)):0.001:(sqrt(25))];
+								plot (x, f1 (x), "r-", x, f2 (x), "b--");
+							```
+							</div>
+							<small>Малко изненади ...</small>
+							<div data-markdown>
+							```m
+								function asdf1 = f1 (x)
+									x = x * 1.375;
+									asdf1 = (2 * (x .* x .+ abs (x) - 6)) ./ (3 * (x .* x .+ abs (x) + 2)) - sqrt (25 - x .* x);
+								endfunction
+
+								function asdf2 = f2 (x)
+									x = x * 1.375;
+									asdf2 = (2 * (x .* x .+ abs (x) - 6)) ./ (3 * (x .* x .+ abs (x) + 2)) + sqrt (25 - x .* x);
+								endfunction
+
+								x = [-(sqrt(25)):0.001:(sqrt(25))];
+								plot (x, f1 (x), "r-", x, f2 (x), "r-");
+							```
+							</div>
+						</div>
+						<br>
+						<br>
+						<div class="foot">	
+							<div class="number"> </div>
+							<div class="follow"> </div>
+						</div>
+					</section>
+					<section>
+						<div class="head">
+							<div class="logo"></div> <div class="title"></div>
+						</div>
+						<div class="body">
+							<center>
+								<h1>Демо</h1>
+								<img height="700px" src="./octave.png">
+							</center>
+						</div>
+						<br>
+						<br>
+						<div class="foot">	
+							<div class="number"> </div>
+							<div class="follow"> </div>
+						</div>
+					</section>
+					<section>
+						<div class="head">
+							<div class="logo"></div> <div class="title">Разлики с MathLab</div>
+						</div>
+						<div class="body">
+							<center>
+								<span style="font-size: 155px; color: #0790C0">GNU Octave</span>
+								<br>VS<br>
+								<span style="font-size: 155px; color: orange;">MathLab</span>
+							</center>
+						</div>
+						<br>
+						<br>
+						<div class="foot">	
+							<div class="number"> </div>
+							<div class="follow"> </div>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<div class="head">
+							<div class="logo"></div> <div class="title"></div>
+						</div>
+						<div class="body">
+							<img src="./geogebra-logo.png">
+						</div>
+						<br>
+						<br>
+						<div class="foot">	
+							<div class="number"> </div>
+							<div class="follow"> </div>
+						</div>
+					</section>
+					<section>
+						<div class="head">
+							<div class="logo"></div> <div class="title"></div>
+						</div>
+						<div class="body">
+							<center>
+								<h1>Демо</h1>
+							</center>
+						</div>
+						<br>
+						<br>
+						<div class="foot">	
+							<div class="number"> </div>
+							<div class="follow"> </div>
+						</div>
+					</section>
+					<section>
+						<div class="head">
+							<div class="logo"></div> <div class="title">GeoGebra</div>
+						</div>
+						<div class="body">
+								<h5>Офлайн версия - <a href="https://www.geogebra.org/download">https://www.geogebra.org/download</a></h5>
+								<h5>Онлайн версия - <a href="https://www.geogebra.org/graphing">https://www.geogebra.org/graphing</a></h5>
+								<h5>Мобилна версия - 
+									<ul>
+										<li> Android - <a href="https://play.google.com/store/apps/details?id=org.geogebra">https://play.google.com/store/apps/details?id=org.geogebra</a></li>
+										<li> iOS - <a href="https://itunes.apple.com/us/app/geogebra/id687678494?mt=8">https://itunes.apple.com/us/app/geogebra/id687678494?mt=8</a></li>
+									</ul>
+								</h5>
+						</div>
+						<br>
+						<br>
+						<div class="foot">	
+							<div class="number"> </div>
+							<div class="follow"> </div>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<div class="head">
+							<div class="logo"></div> <div class="title"></div>
+						</div>
+						<div class="body">
+							<center>
+								<img height="600px" src="./wolframalpha.png">
+							</center>
+						</div>
+						<br>
+						<br>
+						<div class="foot">	
+							<div class="number"> </div>
+							<div class="follow"> </div>
+						</div>
+					</section>
+					<section>
+						<div class="head">
+							<div class="logo"></div> <div class="title"></div>
+						</div>
+						<div class="body">
+							<center>
+								<h1>Демо</h1>
+							</center>
+						</div>
+						<br>
+						<br>
+						<div class="foot">	
+							<div class="number"> </div>
+							<div class="follow"> </div>
+						</div>
+					</section>
+					<section>
+						<div class="head">
+							<div class="logo"></div> <div class="title">WolframAlpha</div>
+						</div>
+						<div class="body">
+								<h5>Онлайн версия - <a href="https://www.wolframalpha.com/">https://www.wolframalpha.com/</a></h5>
+								<h5>Мобилна версия<br> 
+									<ul>
+										<li> Android - <a href="./Wolfram Alpha.apk" download>Wolfram Alpha.apk</a></li>
+										<li> iOS <small>(оправяйте се)</small></li> 
+									</ul>
+								</h5>
+						</div>
+						<br>
+						<br>
+						<div class="foot">	
+							<div class="number"> </div>
+							<div class="follow"> </div>
+						</div>
+					</section>
+				</section>
+				<section>
+					<div class="head">
+						<div class="logo"></div> <div class="title">Ресурси</div>
+					</div>
+					<div class="body">
+						<ul class="resources">
+							<li>
+								<p class="name">Reveal.JS</p>
+								<p class="website"><a href="http://lab.hakim.se/reveal-js/">http://lab.hakim.se/reveal-js/</a></p>
+								<p class="copyright">Copyright &copy; 2016 Hakim El Hattab. All rights reserved.</p>
+							</li>
+							<li>
+								<p class="name">GNU Octave</p>
+								<p class="website"><a href="https://www.gnu.org/software/octave/">https://www.gnu.org/software/octave/</a></p>
+								<p class="copyright">Copyright &copy; 2004-2017 Free Software Foundation, Inc. All rights reserved.</p>
+							</li>
+							<li>
+								<p class="name">GeoGebra</p>
+								<p class="website"><a href="https://geogebra.org/">https://geogebra.org/</a></p>
+								<p class="copyright">Copyright &copy; 2013- International GeoGebra Institute. All rights reserved.</p>
+							</li>
+							<li>
+								<p class="name">Firefox 50.1.0</p>
+								<p class="website"><a href="https://www.mozilla.org/">https://www.mozilla.org/</a></p>
+								<p class="copyright">Copyright &copy; 1998-2017 Mozilla. All rights reserved.</p>
+							</li>
+						</ul>
+					</div>
+					<br>
+					<br>
+					<div class="foot">	
+						<div class="number"> </div>
+						<div class="follow"> </div>
+					</div>
+				</section>
+				<section>
+					<div class="head">
+						<div class="logo"></div> <div class="title">Благодаря за вниманието!</div>
+					</div>
+					<div class="body">
+						<center>
+							<img height="960px" src="../questions.png"></img>
+						</center>
+					</div>
+					<br>
+					<br>
+					<div class="foot">	
+						<div class="number"> </div>
+						<div class="follow"> </div>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<script src="../reveal.js/lib/js/head.min.js"></script>
+		<script src="../reveal.js/js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: '../reveal.js/plugin/zoom-js/zoom.js', async: true },
+					{ src: '../reveal.js/plugin/markdown/marked.js' },
+					{ src: '../reveal.js/plugin/markdown/markdown.js' },
+					{ src: '../reveal.js/plugin/notes/notes.js', async: true },
+					{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+			Reveal.configure({ backgroundTransition: 'none' })
+		</script>
+		<script src="../reveal.js/init.js"></script>
+	</body>
+</html>
