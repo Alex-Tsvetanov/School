@@ -1,0 +1,7 @@
+echo "# Prezi.JS" > README.md
+git init
+git add -A
+git commit -m "first commit"
+git remote add origin https://github.com/TechEducationPlusPlus/prezi.js.git
+git push -u origin master
+

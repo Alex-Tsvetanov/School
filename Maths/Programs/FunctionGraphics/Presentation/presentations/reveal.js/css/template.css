@@ -1,0 +1,170 @@
+body
+{
+}
+
+section
+{
+/*	
+	min-width: 1600px;
+	min-height: 1000px;
+	max-width: 1600px;
+	max-height: 1000px;
+*/
+	width: 1920px;
+	height: 1200px;
+    border: 1px solid rgba(0, 0, 0, .3);
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
+    color: black;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, .1);
+}
+
+.head
+{
+	top: 0%;
+	max-height: 105px;
+	min-height: 105px;
+}
+
+.head > .logo
+{
+	position: fixed;
+	top: 0%;
+	left: 0%;
+}
+
+.head > .title
+{
+	position: fixed;
+	font-family: Monospace;
+	font-size: 125%;
+	font-weight: bold;
+	top: 5%;
+	right: 10%;
+}
+
+.body
+{
+	font-family: Monospace;
+	font-size: 100%;
+	/*
+	min-height: 995px;
+	max-height: 995px;
+	*/
+	width: 1457px;
+	height: 960px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: left;
+	/*padding: 463px 0px 0px 0px 0px;
+	margin: 463px 0px 0px 0px 0px;
+	*/border-left: 463px solid rgba(0, 0, 0, 0) !important;
+}
+
+.foot
+{
+	bottom: 10px;
+	background-color: rgba(255,255,255,0.5);
+}
+
+.foot > .follow
+{
+	position: fixed;
+	bottom: 20px;
+	right: 15px;
+	text-align: right;
+	font-size: 75%;
+}
+
+.foot > .follow > center > a > img
+{
+	height: 80px;
+}
+
+
+.foot .bottom
+{
+	position: fixed;
+	bottom: 75px;
+	left: 1%;
+	text-align: left;
+	font-size: 75%;
+}
+
+.foot .number
+{
+	position: fixed;
+	bottom: 45px;
+	left: 1%;
+	font-size: 25px;
+	font-family: Monospace;
+}
+
+
+.bottom .author
+{
+}
+
+.bottom .organization
+{
+}
+
+.bottom .webpages
+{
+}
+
+a:link
+{
+	border: 0px;
+	background-color: rgba(0,0,0,0);
+}
+
+a:visited 
+{
+	background-color: rgba(0,0,0,0);
+}
+
+a:hover 
+{
+	background-color: rgba(0,0,0,0);
+}
+
+a:active
+{
+	background-color: rgba(0,0,0,0);
+}
+
+.label
+{
+	width: 55%;
+	border-top:   4px solid white;
+	border-left:  4px solid white;
+	border-right: 4px solid white;
+	border-collapse: separate;
+    border-spacing: 10px 50px;
+}
+
+.definition 
+{
+	border-collapse: separate;
+    border-spacing: 10px 50px;
+	border-top:   4px solid white;
+	border-bottom:4px solid white;
+	border-left:  4px solid white;
+	border-right: 4px solid white;
+}
+
+ul.resources
+{
+
+}
+
+ul.resources>li
+{
+
+}
+
+ul.resources>li>.name
+{
+	font-weight: bold;
+}
